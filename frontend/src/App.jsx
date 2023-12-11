@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import { UserProvider } from './contexts/user.context'
 
 import Layout from './components/Layout'
 import Login from './pages/Login'
@@ -18,7 +19,9 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+      <UserProvider>
+        <RouterProvider router={router} />
+      </UserProvider>
     </>
   )
 }

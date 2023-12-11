@@ -55,21 +55,43 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <form action=''>
-        <input type='text'
-          aria-label='email'
-          value={form.email} 
-          name='email' 
-          onChange={handleFormInputChange} />
-        <input type="password"
-          aria-label='password'
-          value={form.password}
-          name='password'
-          onChange={handleFormInputChange} />
-        <button onClick={handleSubmit}>log in</button>
+    <div className='w-[420px] md:w-[512px] m-auto bg-slate-200 dark:bg-slate-700 shadow-lg px-12 py-4'>
+      <h1 className='text-4xl uppercase text-center p-2 font-display'>Sign In</h1>
+      <form className=' w-full align-middle font-content'
+        action=''>
+        <div className="w-full flex flex-col gap-4 align-middle ">
+          <input type='text'
+            required
+            aria-label='email'
+            value={form.email} 
+            name='email' 
+            placeholder='email'
+            onChange={handleFormInputChange}
+            className='shadow-md w-11/12 md:w-2/3 rounded-sm m-auto p-1' />
+          <input type="password"
+            required
+            aria-label='password'
+            value={form.password}
+            name='password'
+            placeholder='password'
+            onChange={handleFormInputChange}
+            className='shadow-md w-11/12 md:w-2/3 rounded-sm m-auto p-1' />
+        </div>
+        <button onClick={handleSubmit}
+          className=''>
+            log in
+        </button>
       </form>
-      <p>Don&apos;t have an account? <Link to='/register'>Sign up here.</Link></p>
+      <p className='relative flex items-center gap-2 py-4'>
+        <div className='flex-grow border-t border-slate-400'></div>
+        <span className='flex-shrink only:px-8 text-slate-400'>or</span>
+        <div className='flex-grow border-t border-slate-400'></div>
+      </p>
+      <button>
+        <Link to='/register'>
+          Register
+        </Link>
+      </button>
     </div>
   )
 }
